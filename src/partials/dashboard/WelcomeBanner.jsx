@@ -1,6 +1,23 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+
+
+
 
 function WelcomeBanner() {
+
+  const location = useLocation();
+  // Check the current pathname and set the message accordingly
+  const getMessage = () => {
+    if (location.pathname === '/dashboard/analytics') {
+      return "Here is what’s happening with your network today:";
+    } else if (location.pathname === '/') {
+      return "Here is what’s happening in your region today:";
+    } else {
+      return "Here is what’s happening today:";
+    }
+  };
+
   return (
     <div className="relative bg-indigo-200 dark:bg-indigo-500 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
       {/* Background illustration */}
@@ -47,8 +64,9 @@ function WelcomeBanner() {
 
       {/* Content */}
       <div className="relative">
-        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Good afternoon, Acme Inc. 👋</h1>
-        <p className="dark:text-indigo-200">Here is what’s happening with your projects today:</p>
+        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Good afternoon, Bell Canada 👋</h1>
+        {/* <p className="dark:text-indigo-200">Here is what’s happening with your network today:</p> */}
+        <p className="dark:text-indigo-200">{getMessage()}</p>
       </div>
     </div>
   );

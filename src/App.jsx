@@ -8,9 +8,9 @@ import {
 import './css/style.css';
 
 import './charts/ChartjsConfig';
-
 // Import pages
 import Dashboard from './pages/Dashboard';
+import AnalyticsPage from './pages/AnalyticsPage';
 
 function App() {
 
@@ -26,6 +26,7 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
+        <Route path="/dashboard/analytics" element={<AnalyticsPage />} />
       </Routes>
     </>
   );
