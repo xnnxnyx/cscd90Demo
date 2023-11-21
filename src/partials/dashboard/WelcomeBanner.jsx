@@ -11,7 +11,11 @@ function WelcomeBanner() {
   const getMessage = () => {
     if (location.pathname === '/dashboard/analytics') {
       return "Here is what’s happening with your network today:";
-    } else if (location.pathname === '/') {
+    } 
+    else if (location.pathname === '/search/telus') {
+      return "Here is what’s happening with Telus:";
+    } 
+    else if (location.pathname === '/') {
       return "Here is what’s happening in your region today:";
     } else {
       return "Here is what’s happening today:";

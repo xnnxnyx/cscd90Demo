@@ -11,6 +11,7 @@ import './charts/ChartjsConfig';
 // Import pages
 import Dashboard from './pages/Dashboard';
 import AnalyticsPage from './pages/AnalyticsPage';
+import Telus from "./pages/Telus"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
         <Route path="/dashboard/analytics" element={<AnalyticsPage />} />
+        <Route path="/search/telus" element={<Telus />} />
       </Routes>
     </>
   );

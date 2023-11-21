@@ -27,7 +27,28 @@ function DashboardCard05() {
     50.62, 56.28, 57.37, 53.08, 55.94, 55.82, 53.94, 52.65, 50.25,
   ];
 
-  const [slicedData, setSlicedData] = useState(data.slice(0, range));
+  // Dummy data with values in range [50-200]
+const bigRangeData = [
+  150.21, 152.22, 154.42, 153.42, 150.91, 158.52, 153.37, 157.58, 159.09, 159.36,
+  158.71, 159.42, 155.93, 157.71, 150.62, 156.28, 157.37, 153.08, 155.94, 155.82,
+  153.94, 152.65, 150.25, 152.81, 152.75, 150.48, 149.28, 148.14, 147.25, 146.04,
+  147.49, 150.49, 151.87, 153.25, 155.91, 154.44, 155.97, 152.27, 150.96, 149.34,
+  145.07, 149.85, 143.79, 141.92, 140.95, 139.65, 138.09, 139.81, 137.85, 139.52,
+  140.21, 142.22, 144.42, 143.42, 140.91, 148.52, 143.37, 147.58, 149.09, 149.36,
+  148.71, 149.42, 145.93, 147.71, 140.62, 146.28, 147.37, 143.08, 145.94, 145.82,
+  143.94, 142.65, 140.25, 145.21, 145.75, 143.48, 142.28, 141.14, 140.25, 139.04,
+  140.49, 143.49, 144.87, 146.25, 148.91, 147.44, 148.97, 145.27, 143.96, 142.34,
+  138.07, 142.85, 136.79, 134.92, 133.95, 132.65, 131.09, 132.81, 130.85, 132.52,
+  133.21, 135.22, 137.42, 136.42, 133.91, 141.52, 136.37, 140.58, 142.09, 142.36,
+  141.71, 142.42, 138.93, 140.71, 133.62, 139.28, 140.37, 136.08, 138.94, 138.82,
+  136.94, 135.65, 133.25, 138.21,
+];
+
+
+  const currentPagePath = window.location.pathname;
+  const selectedData = currentPagePath === '/search/telus' ? bigRangeData : data;
+
+  const [slicedData, setSlicedData] = useState(selectedData.slice(0, range));
 
   // Generate fake dates from now to back in time
   const generateDates = () => {
@@ -52,8 +73,10 @@ function DashboardCard05() {
   // Loop through data array and update
   useEffect(() => {
     setIncrement(increment + 1);
-    if (increment + range < data.length) {
-      setSlicedData(([x, ...slicedData]) => [...slicedData, data[increment + range]]);
+    const newData = currentPagePath === '/search/telus' ? bigRangeData : data;
+
+    if (increment + range < newData.length) {
+      setSlicedData(([x, ...slicedData]) => [...slicedData, newData[increment + range]]);
     } else {
       setIncrement(0);
       setRange(0);
@@ -61,7 +84,7 @@ function DashboardCard05() {
     setSlicedLabels(([x, ...slicedLabels]) => [...slicedLabels, new Date()]);
     return () => setIncrement(0)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [counter]);
+  }, [counter, currentPagePath]);
 
   const chartData = {
     labels: slicedLabels,

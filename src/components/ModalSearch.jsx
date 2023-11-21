@@ -116,7 +116,7 @@ function ModalSearch({
                 <li>
                   <Link
                     className="flex items-center p-2 text-slate-800 dark:text-slate-100 hover:text-white hover:bg-indigo-500 rounded group"
-                    to="#0"
+                    to="/search/telus"
                     onClick={() => setModalOpen(!modalOpen)}
                   >
                     <svg
