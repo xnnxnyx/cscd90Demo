@@ -85,7 +85,10 @@ function DashboardCard10() {
                         </div>
                       </td>
                       <td className="p-2 whitespace-nowrap">
-                        <div className="text-center font-medium text-green-500">{customer.spent}</div>
+                      <div className={`text-center font-medium ${customer.spent === "Down" ? "text-red-500" : "text-green-500"}`}>
+                        {customer.spent}
+                      </div>
+
                       </td>
                       <td className="p-2 whitespace-nowrap">
                         <div className="text-lg text-center">{customer.location}</div>
