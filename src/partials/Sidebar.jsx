@@ -186,7 +186,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                             */}
                             <li className="mb-1 last:mb-0">
                             <a
-                              href="src/partials/toronto_heat_map_modified_v7.html" // 修改这里的路径
+                              href="/src/partials/toronto_heat_map_modified_v7.html"
                               className="block transition duration-150 truncate text-slate-400 hover:text-slate-200"
                             >
                             <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
